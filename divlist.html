@@ -44,28 +44,50 @@
         <div class="divlist">row item 2</div>
         <div class="divlist">row item 3</div>
     </div>
-    
+
+    <button id="b1" class="btn-primary" onclick="addFront()">Add front</button>
+    <button id="b2" onclick="remove()">Remove</button>
+
     <script>
-        
+
         // function makeNewDiv(){
         // let element = document.creareElement("div")
         // element.innerHTML = document.getElementById("input").value;
         // element.className = "divlist";
         // doccument.getElementById("target").appendChild(element)
         // }
-    
-        function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = document.getElementById("input").value;
-		element.style.color = "orange"
 
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
-        
+        function makeNewDiv() {
+            /* make the div and its text */
+            let element = document.createElement("div")
+            element.innerHTML = document.getElementById("input").value;
+
+            /* add it to the container */
+            let container = document.getElementById('target')
+            container.appendChild(element)
+        }
+
+
+        function remove() {
+            const divListItem = document.getElementsByClassName("divlist");
+            if (divListItem.length > 0) {
+                const middle = Math.floor(length / 2);
+                divListItem[middle].remove();
+            }
+        }
+
+        function addFront() {
+
+            let add = document.createElement("div")
+            add.innerHTML = document.getElementById("input").value;
+            
+            let container = document.getElementById('target')
+            container.insertBefore(add, container.firstChild);
+
+        }
+
+
+
     </script>
 
 </body>
