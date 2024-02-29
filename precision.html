@@ -16,9 +16,11 @@
     <h1> Benitha Sri Panchagiri Speedy Check</h1>
     <div id="target">Your time: </div>
     <div id="counter">Count: </div>
+    <div id="random">Count Down:</div>
 
     <button type="button" onclick="startTime()">Start Time.</button>
     <button type="button" onclick="recordTime()">Stop Time.</button>
+    <button type="button" onclick="randomTimer()">Start Timer</button>
 
 
 
@@ -33,26 +35,31 @@
 
         }
 
-        
+
         function startTime() {
             for (let i = 0; i < 5; i++) {
-                setTimeout(() =>{
+                setTimeout(() => {
                     document.getElementById("counter").innerHTML = `<div id="counter">Count:${i}</div>`
-                },((4-i)*1000))
+                }, ((4 - i) * 1000))
             }
 
-            setTimeout(()=>{
-                if(stopTime === undefined){
+            setTimeout(() => {
+                if (stopTime === undefined) {
                     document.getElementById("target").innerText = "To slow";
-                }else{
+                } else {
                     stopTime2 = Date.now();
                     let differenceTime = stopTime2 - stopTime;
                     document.getElementById("target").innerHTML = ` <div id="target">Your time: ${differenceTime}</div>`
                 }
-            },4000)
+            }, 4000)
         }
 
-        
+        function randomTimer() {
+            const random = Math.floor(Math.random() * 9) + 2;
+            document.getElementById("random").innerText = random ;
+        }
+
+
 
     </script>
 
